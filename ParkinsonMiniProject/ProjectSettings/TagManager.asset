@@ -11,6 +11,7 @@ TagManager:
   - NucleusDBS
   - GlobusDBS
   - InfoText
+  - Brain
   layers:
   - Default
   - TransparentFX
