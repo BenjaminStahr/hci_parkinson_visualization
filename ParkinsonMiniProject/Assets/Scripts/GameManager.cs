@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public GameObject GlobusBrainRight;
     public GameObject NucleusBrainLeft;
     public GameObject NucleusBrainRight;
+    public GameObject SubtantiaBrainLeft;
+    public GameObject SubtantiaBrainRight;
 
     int rotationSpeed = 15;
     Color DBSNucleusColor = new Color32(2,232,253,255);
@@ -47,7 +49,8 @@ public class GameManager : MonoBehaviour
         GlobusBrainRight = GameObject.FindGameObjectWithTag("GlobusBrainRight");
         NucleusBrainLeft = GameObject.FindGameObjectWithTag("NucleusBrainLeft");
         NucleusBrainRight = GameObject.FindGameObjectWithTag("NucleusBrainRight");
-
+        SubtantiaBrainLeft = GameObject.FindGameObjectWithTag("SubtantiaBrainLeft");
+        SubtantiaBrainRight = GameObject.FindGameObjectWithTag("SubtantiaBrainRight");
         GlobusDBSButton.SetActive(false);
         NucleusDBSButton.SetActive(false);
     }
@@ -100,28 +103,60 @@ public class GameManager : MonoBehaviour
 
     public void SetTextNucleus()
     {
-        InfoText.GetComponent<TextMesh>().text = "Nucleus";
+        InfoText.GetComponent<TextMesh>().text = "Er ist bei  Parkinson überaktiv.\n " +
+            "Löst primär das Zittern/Ruhetremor aus. \n" +
+            "Durch die Krankheit wird der Thalamus gehemmt, " +
+            "was die Anregung\n des Motorcortex (gibt Bewegungsbefehle an Muskeln)\n weniger wahrscheinlich macht.";
         //hier dann auch den entsprechenden Text vorlesen
+        DeactivateAllOutlines();
+        NucleusBrainLeft.GetComponent<Outline>().enabled = true;
+        NucleusBrainRight.GetComponent<Outline>().enabled = true;
     }
     public void SetTextSubtantia()
     {
-        InfoText.GetComponent<TextMesh>().text = "Subtantia";
+        InfoText.GetComponent<TextMesh>().text = "Sie liegt nahe dem Hirnstamm, welcher\n Bewegungen berechnet und einleitet. " +
+            "Die Stelle reagiert auf Dopamin,\n um richtig zu funktionieren." +
+            " Die Substantia Nigra besteht z.T.\n aus dopamin-liefernde Nerven,\n" +
+            " welche bei Parkinson absterben. Sie ist die Stelle im Kopf,\n die am meisten betroffen ist.";
         //hier dann auch den entsprechenden Text vorlesen
+        DeactivateAllOutlines();
+        SubtantiaBrainLeft.GetComponent<Outline>().enabled = true;
+        SubtantiaBrainRight.GetComponent<Outline>().enabled = true;
     }
     public void SetTextGlobus()
     {
-        InfoText.GetComponent<TextMesh>().text = "Globus";
+        InfoText.GetComponent<TextMesh>().text = "Weiteres Nervenzentrum für Balance, Bewegung und Laufen.\n " +
+            "Unterversorgung, z.B. mit Dopamin, führt\n zu gestörter Funktionalität.";
         //hier dann auch den entsprechenden Text vorlesen
+        DeactivateAllOutlines();
+        GlobusBrainLeft.GetComponent<Outline>().enabled = true;
+        GlobusBrainRight.GetComponent<Outline>().enabled = true;
     }
     public void SetTextNucleusDBS()
     {
-        InfoText.GetComponent<TextMesh>().text = "Nucleus DBS";
+        InfoText.GetComponent<TextMesh>().text = "Oft wird diese Stelle ausgenutzt.\n " +
+            "Durch Erkrankung überaktiv und mit Impulsen\n wird diese Fehlfunktion wesentlich verbessert.";
         //hier dann auch den entsprechenden Text vorlesen
+        DeactivateAllOutlines();
+        NucleusBrainLeft.GetComponent<Outline>().enabled = true;
+        NucleusBrainRight.GetComponent<Outline>().enabled = true;
     }
     public void SetTextGlobusDBS()
     {
-        InfoText.GetComponent<TextMesh>().text = "Globus DBS";
+        InfoText.GetComponent<TextMesh>().text = "Diese Stelle wird in Spätphasen der Erkrankung genutzt.\n " +
+            "Impulse synchronisieren das Verhalten,\n was gestört wird und lindert so Symptome.";
         //hier dann auch den entsprechenden Text vorlesen
+        DeactivateAllOutlines();
+        GlobusBrainLeft.GetComponent<Outline>().enabled = true;
+        GlobusBrainRight.GetComponent<Outline>().enabled = true;
     }
- 
+    public void DeactivateAllOutlines()
+    {
+        GlobusBrainLeft.GetComponent<Outline>().enabled = false;
+        GlobusBrainRight.GetComponent<Outline>().enabled = false;
+        SubtantiaBrainLeft.GetComponent<Outline>().enabled = false;
+        SubtantiaBrainRight.GetComponent<Outline>().enabled = false;
+        NucleusBrainLeft.GetComponent<Outline>().enabled = false;
+        NucleusBrainRight.GetComponent<Outline>().enabled = false;
+    }
 }

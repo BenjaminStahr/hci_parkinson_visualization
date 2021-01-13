@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - GameManager
+    - Outline
     - RotateBrain
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -61,43 +62,45 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11338}
+      Script: {instanceID: 11342}
     - Class: 114
-      Script: {instanceID: 11540}
+      Script: {instanceID: 11544}
     - Class: 114
-      Script: {instanceID: 11826}
+      Script: {instanceID: 11830}
     - Class: 114
-      Script: {instanceID: 11828}
+      Script: {instanceID: 11832}
     - Class: 114
-      Script: {instanceID: 11936}
+      Script: {instanceID: 11940}
     - Class: 114
-      Script: {instanceID: 11962}
+      Script: {instanceID: 11966}
     - Class: 114
-      Script: {instanceID: 12056}
+      Script: {instanceID: 12060}
     - Class: 114
-      Script: {instanceID: 12078}
+      Script: {instanceID: 12082}
     - Class: 114
-      Script: {instanceID: 12086}
+      Script: {instanceID: 12090}
     - Class: 114
-      Script: {instanceID: 12088}
+      Script: {instanceID: 12092}
     - Class: 114
-      Script: {instanceID: 12524}
+      Script: {instanceID: 12528}
     - Class: 114
-      Script: {instanceID: 12716}
+      Script: {instanceID: 12720}
     - Class: 114
-      Script: {instanceID: 12746}
+      Script: {instanceID: 12750}
     - Class: 114
-      Script: {instanceID: 12762}
+      Script: {instanceID: 12766}
     - Class: 114
-      Script: {instanceID: 12950}
+      Script: {instanceID: 12934}
     - Class: 114
-      Script: {instanceID: 13012}
+      Script: {instanceID: 12956}
     - Class: 114
-      Script: {instanceID: 13158}
+      Script: {instanceID: 13018}
     - Class: 114
-      Script: {instanceID: 13166}
+      Script: {instanceID: 13164}
     - Class: 114
-      Script: {instanceID: 13444}
+      Script: {instanceID: 13172}
+    - Class: 114
+      Script: {instanceID: 13450}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -833,6 +836,12 @@ ScriptsOnlyBuild:
     className: DefaultModelRecoEventHandler
   - hash:
       serializedVersion: 2
+      Hash: ff7f58b226cfe4de0dc241bd88d5a904
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Outline
+  - hash:
+      serializedVersion: 2
       Hash: 6939772cb3ce775a8e8d99f332534491
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -863,7 +872,7 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
-      Hash: 92d8ed6d1058f132098af80874ff8b18
+      Hash: ee04881c23dfa278c7de9517259b8bc0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -1368,4 +1377,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/sarry/OneDrive/Dokumente/MasterEngSTS/Semester3/ArVr/MiniProject/clickRotate.apk
+  playerPath: C:/Users/Benja/Documents/miniproject/ParkinsonMiniProject/build.apk

@@ -12,6 +12,12 @@ TagManager:
   - GlobusDBS
   - InfoText
   - Brain
+  - GlobusBrainLeft
+  - NucleusBrainLeft
+  - NucleusBrainRight
+  - GlobusBrainRight
+  - SubtantiaBrainRight
+  - SubtantiaBrainLeft
   layers:
   - Default
   - TransparentFX
