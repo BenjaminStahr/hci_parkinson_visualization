@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public GameObject SubtantiaBrainLeft;
     public GameObject SubtantiaBrainRight;
     public GameObject[] ElectrodeGP;
+    public GameObject[] ElectrodeSTN;
 
     int rotationSpeed = 15;
     Color DBSNucleusColor = new Color32(2,232,253,255);
@@ -53,7 +54,13 @@ public class GameManager : MonoBehaviour
         SubtantiaBrainLeft = GameObject.FindGameObjectWithTag("SubtantiaBrainLeft");
         SubtantiaBrainRight = GameObject.FindGameObjectWithTag("SubtantiaBrainRight");
         ElectrodeGP = GameObject.FindGameObjectsWithTag("ElectrodeGP");
+        ElectrodeSTN = GameObject.FindGameObjectsWithTag("ElectrodeSTN");
         foreach (GameObject electrode in ElectrodeGP) {
+            electrode.SetActive(false);
+        }
+        
+        foreach (GameObject electrode in ElectrodeSTN)
+        {
             electrode.SetActive(false);
         }
         GlobusDBSButton.SetActive(false);
@@ -83,6 +90,10 @@ public class GameManager : MonoBehaviour
                 GlobusDBSButton.SetActive(true);
                 NucleusDBSButton.SetActive(true);
                 foreach (GameObject electrode in ElectrodeGP)
+                {
+                    electrode.SetActive(true);
+                }
+                foreach (GameObject electrode in ElectrodeSTN)
                 {
                     electrode.SetActive(true);
                 }
