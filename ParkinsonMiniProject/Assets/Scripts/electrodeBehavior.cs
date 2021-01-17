@@ -18,7 +18,7 @@ public class electrodeBehavior : MonoBehaviour
     void Update()
     {
         LightUp();
-        LightDown();
+        LightOff();
     }
     void LightUp()
     {
@@ -46,7 +46,7 @@ public class electrodeBehavior : MonoBehaviour
             //Assign shader values....
         }
     }
-    void LightDown()
+    void LightOff()
     {
         if (!specular)
         {

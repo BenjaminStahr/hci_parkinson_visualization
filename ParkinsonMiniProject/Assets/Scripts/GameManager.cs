@@ -77,6 +77,14 @@ public class GameManager : MonoBehaviour
                 GlobusButton.SetActive(true);
                 GlobusDBSButton.SetActive(false);
                 NucleusDBSButton.SetActive(false);
+                foreach (GameObject electrode in ElectrodeGP)
+                {
+                    electrode.SetActive(false);
+                }
+                foreach (GameObject electrode in ElectrodeSTN)
+                {
+                    electrode.SetActive(false);
+                }
                 //change colours of brain areas
                 GlobusBrainLeft.GetComponent<Renderer>().material.color = InfoGlobusColor;
                 GlobusBrainRight.GetComponent<Renderer>().material.color = InfoGlobusColor;
@@ -160,6 +168,14 @@ public class GameManager : MonoBehaviour
         DeactivateAllOutlines();
         NucleusBrainLeft.GetComponent<Outline>().enabled = true;
         NucleusBrainRight.GetComponent<Outline>().enabled = true;
+        foreach (GameObject electrode in ElectrodeGP)
+        {
+            electrode.GetComponent<electrodeBehavior>().specular = false;
+        }
+        foreach (GameObject electrode in ElectrodeSTN)
+        {
+            electrode.GetComponent<electrodeBehavior>().specular = true;
+        }
     }
     public void SetTextGlobusDBS()
     {
@@ -169,6 +185,14 @@ public class GameManager : MonoBehaviour
         DeactivateAllOutlines();
         GlobusBrainLeft.GetComponent<Outline>().enabled = true;
         GlobusBrainRight.GetComponent<Outline>().enabled = true;
+        foreach (GameObject electrode in ElectrodeSTN)
+        {
+            electrode.GetComponent<electrodeBehavior>().specular = false;
+        }
+        foreach (GameObject electrode in ElectrodeGP)
+        {
+            electrode.GetComponent<electrodeBehavior>().specular = true;
+        }
     }
     public void DeactivateAllOutlines()
     {
