@@ -18,6 +18,9 @@ TagManager:
   - GlobusBrainRight
   - SubtantiaBrainRight
   - SubtantiaBrainLeft
+  - Electrode
+  - ElectrodeGP
+  - ElectrodeSTN
   layers:
   - Default
   - TransparentFX

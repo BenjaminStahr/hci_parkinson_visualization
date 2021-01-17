@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public GameObject NucleusBrainRight;
     public GameObject SubtantiaBrainLeft;
     public GameObject SubtantiaBrainRight;
+    public GameObject[] ElectrodeGP;
 
     int rotationSpeed = 15;
     Color DBSNucleusColor = new Color32(2,232,253,255);
@@ -51,6 +52,10 @@ public class GameManager : MonoBehaviour
         NucleusBrainRight = GameObject.FindGameObjectWithTag("NucleusBrainRight");
         SubtantiaBrainLeft = GameObject.FindGameObjectWithTag("SubtantiaBrainLeft");
         SubtantiaBrainRight = GameObject.FindGameObjectWithTag("SubtantiaBrainRight");
+        ElectrodeGP = GameObject.FindGameObjectsWithTag("ElectrodeGP");
+        foreach (GameObject electrode in ElectrodeGP) {
+            electrode.SetActive(false);
+        }
         GlobusDBSButton.SetActive(false);
         NucleusDBSButton.SetActive(false);
     }
@@ -77,6 +82,10 @@ public class GameManager : MonoBehaviour
                 GlobusButton.SetActive(false);
                 GlobusDBSButton.SetActive(true);
                 NucleusDBSButton.SetActive(true);
+                foreach (GameObject electrode in ElectrodeGP)
+                {
+                    electrode.SetActive(true);
+                }
                 //change colours of brain areas
                 GlobusBrainLeft.GetComponent<Renderer>().material.color = DBSGlobusColor;
                 GlobusBrainRight.GetComponent<Renderer>().material.color = DBSGlobusColor;
