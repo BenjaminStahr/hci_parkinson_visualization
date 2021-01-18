@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - GameManager
     - Outline
     - RotateBrain
+    - electrodeBehavior
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -25,6 +26,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     Vuforia.UnityExtensions.dll:
     - Vuforia.ImageTargetBehaviour
+    - Vuforia.ModelTargetBehaviour
+    - Vuforia.PreviewModelTurnOffBehaviour
     - Vuforia.TurnOffBehaviour
     - Vuforia.VuforiaBehaviour
     - Vuforia.VuforiaConfiguration
@@ -62,50 +65,58 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11342}
+      Script: {instanceID: 11416}
     - Class: 114
-      Script: {instanceID: 11544}
+      Script: {instanceID: 11432}
     - Class: 114
-      Script: {instanceID: 11830}
+      Script: {instanceID: 11620}
     - Class: 114
-      Script: {instanceID: 11832}
+      Script: {instanceID: 11906}
     - Class: 114
-      Script: {instanceID: 11940}
+      Script: {instanceID: 11908}
     - Class: 114
-      Script: {instanceID: 11966}
+      Script: {instanceID: 12016}
     - Class: 114
-      Script: {instanceID: 12060}
+      Script: {instanceID: 12042}
     - Class: 114
-      Script: {instanceID: 12082}
+      Script: {instanceID: 12136}
     - Class: 114
-      Script: {instanceID: 12090}
+      Script: {instanceID: 12144}
     - Class: 114
-      Script: {instanceID: 12092}
+      Script: {instanceID: 12154}
     - Class: 114
-      Script: {instanceID: 12528}
+      Script: {instanceID: 12158}
     - Class: 114
-      Script: {instanceID: 12720}
+      Script: {instanceID: 12166}
     - Class: 114
-      Script: {instanceID: 12750}
+      Script: {instanceID: 12168}
     - Class: 114
-      Script: {instanceID: 12766}
+      Script: {instanceID: 12604}
     - Class: 114
-      Script: {instanceID: 12934}
+      Script: {instanceID: 12796}
     - Class: 114
-      Script: {instanceID: 12956}
+      Script: {instanceID: 12826}
     - Class: 114
-      Script: {instanceID: 13018}
+      Script: {instanceID: 12842}
     - Class: 114
-      Script: {instanceID: 13164}
+      Script: {instanceID: 13010}
     - Class: 114
-      Script: {instanceID: 13172}
+      Script: {instanceID: 13032}
     - Class: 114
-      Script: {instanceID: 13450}
+      Script: {instanceID: 13094}
+    - Class: 114
+      Script: {instanceID: 13240}
+    - Class: 114
+      Script: {instanceID: 13248}
+    - Class: 114
+      Script: {instanceID: 13526}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
     - Class: 135
+      Script: {instanceID: 0}
+    - Class: 136
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -138,6 +149,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: CanvasScaler
+  - hash:
+      serializedVersion: 2
+      Hash: e475c0de71a1e11169a277e50c4c99bf
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: electrodeBehavior
   - hash:
       serializedVersion: 2
       Hash: c42672c997f8be6b1aa86a927ebea785
@@ -872,7 +889,7 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
-      Hash: ee04881c23dfa278c7de9517259b8bc0
+      Hash: a9b83f7c52d30c874280b953a0925068
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
