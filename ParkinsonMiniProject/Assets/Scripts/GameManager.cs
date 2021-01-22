@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     public GameObject SubtantiaBrainRight;
     public GameObject[] ElectrodeGP;
     public GameObject[] ElectrodeSTN;
+    public GameObject[] electrodeLights;
+    public GameObject[] electrodeLightsSTN;
 
     int rotationSpeed = 15;
     Color DBSNucleusColor = new Color32(2,232,253,255);
@@ -55,14 +57,23 @@ public class GameManager : MonoBehaviour
         SubtantiaBrainRight = GameObject.FindGameObjectWithTag("SubtantiaBrainRight");
         ElectrodeGP = GameObject.FindGameObjectsWithTag("ElectrodeGP");
         ElectrodeSTN = GameObject.FindGameObjectsWithTag("ElectrodeSTN");
+        electrodeLights = GameObject.FindGameObjectsWithTag("ElectrodeLight");
+        electrodeLightsSTN = GameObject.FindGameObjectsWithTag("ElectrodeLightSTN");
         foreach (GameObject electrode in ElectrodeGP) {
             electrode.SetActive(false);
+            electrode.GetComponent<Light>().enabled = false;
         }
         
         foreach (GameObject electrode in ElectrodeSTN)
         {
             electrode.SetActive(false);
+            electrode.GetComponent<Light>().enabled = false;
         }
+        /**
+        foreach (GameObject electrodeLight in electrodeLights)
+        {
+            electrodeLight.GetComponent<Light>().enabled = false;
+        }*/
         GlobusDBSButton.SetActive(false);
         NucleusDBSButton.SetActive(false);
     }
@@ -105,6 +116,7 @@ public class GameManager : MonoBehaviour
                 {
                     electrode.SetActive(true);
                 }
+                
                 //change colours of brain areas
                 GlobusBrainLeft.GetComponent<Renderer>().material.color = DBSGlobusColor;
                 GlobusBrainRight.GetComponent<Renderer>().material.color = DBSGlobusColor;
@@ -176,6 +188,16 @@ public class GameManager : MonoBehaviour
         {
             electrode.GetComponent<electrodeBehavior>().specular = true;
         }
+        electrodeLights = GameObject.FindGameObjectsWithTag("ElectrodeLight");
+        foreach (GameObject electrodeLight in electrodeLights)
+        {
+            electrodeLight.GetComponent<Light>().enabled = false;
+        }
+        electrodeLightsSTN = GameObject.FindGameObjectsWithTag("ElectrodeLightSTN");
+        foreach (GameObject electrodeLight in electrodeLightsSTN)
+        {
+            electrodeLight.GetComponent<Light>().enabled = true;
+        }
     }
     public void SetTextGlobusDBS()
     {
@@ -193,8 +215,18 @@ public class GameManager : MonoBehaviour
         {
             electrode.GetComponent<electrodeBehavior>().specular = true;
         }
+        electrodeLights = GameObject.FindGameObjectsWithTag("ElectrodeLight");
+        foreach (GameObject electrodeLight in electrodeLights)
+        {
+            electrodeLight.GetComponent<Light>().enabled = true;
+        }
+        electrodeLightsSTN = GameObject.FindGameObjectsWithTag("ElectrodeLightSTN");
+        foreach (GameObject electrodeLight in electrodeLightsSTN)
+        {
+            electrodeLight.GetComponent<Light>().enabled = false;
+        }
     }
-    public void DeactivateAllOutlines()
+        public void DeactivateAllOutlines()
     {
         GlobusBrainLeft.GetComponent<Outline>().enabled = false;
         GlobusBrainRight.GetComponent<Outline>().enabled = false;

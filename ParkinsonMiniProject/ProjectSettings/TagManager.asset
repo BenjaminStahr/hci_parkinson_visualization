@@ -21,6 +21,8 @@ TagManager:
   - Electrode
   - ElectrodeGP
   - ElectrodeSTN
+  - ElectrodeLight
+  - ElectrodeLightSTN
   layers:
   - Default
   - TransparentFX
