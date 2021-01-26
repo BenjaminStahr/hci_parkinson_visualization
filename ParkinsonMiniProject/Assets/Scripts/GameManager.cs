@@ -31,6 +31,12 @@ public class GameManager : MonoBehaviour
     public GameObject[] electrodeLights;
     public GameObject[] electrodeLightsSTN;
 
+    public AudioSource audioInfoGlobus;
+    public AudioSource audioInfoNucleus;
+    public AudioSource audioInfoSubstantia;
+    public AudioSource audioInfoDBSGlobus;
+    public AudioSource audioInfoDBSNucleus;
+
     int rotationSpeed = 15;
     Color DBSNucleusColor = new Color32(2,232,253,255);
     Color DBSGlobusColor = new Color32(253,241,5,255);
@@ -76,6 +82,12 @@ public class GameManager : MonoBehaviour
         }*/
         GlobusDBSButton.SetActive(false);
         NucleusDBSButton.SetActive(false);
+
+        audioInfoGlobus.GetComponent<AudioSource>().enabled = false;
+        audioInfoNucleus.GetComponent<AudioSource>().enabled = false;
+        audioInfoSubstantia.GetComponent<AudioSource>().enabled = false;
+        audioInfoDBSGlobus.GetComponent<AudioSource>().enabled = false;
+        audioInfoDBSNucleus.GetComponent<AudioSource>().enabled = false;
     }
 
     void Update()
@@ -148,6 +160,7 @@ public class GameManager : MonoBehaviour
             "Durch die Krankheit wird der Thalamus gehemmt, " +
             "was die Anregung\n des Motorcortex (gibt Bewegungsbefehle an Muskeln)\n weniger wahrscheinlich macht.";
         //hier dann auch den entsprechenden Text vorlesen
+        audioInfoNucleus.GetComponent<AudioSource>().enabled = true;
         DeactivateAllOutlines();
         NucleusBrainLeft.GetComponent<Outline>().enabled = true;
         NucleusBrainRight.GetComponent<Outline>().enabled = true;
@@ -159,6 +172,7 @@ public class GameManager : MonoBehaviour
             " Die Substantia Nigra besteht z.T.\n aus dopamin-liefernde Nerven,\n" +
             " welche bei Parkinson absterben. Sie ist die Stelle im Kopf,\n die am meisten betroffen ist.";
         //hier dann auch den entsprechenden Text vorlesen
+        audioInfoSubstantia.GetComponent<AudioSource>().enabled = true;
         DeactivateAllOutlines();
         SubtantiaBrainLeft.GetComponent<Outline>().enabled = true;
         SubtantiaBrainRight.GetComponent<Outline>().enabled = true;
@@ -168,6 +182,7 @@ public class GameManager : MonoBehaviour
         InfoText.GetComponent<TextMesh>().text = "Weiteres Nervenzentrum für Balance, Bewegung und Laufen.\n " +
             "Unterversorgung, z.B. mit Dopamin, führt\n zu gestörter Funktionalität.";
         //hier dann auch den entsprechenden Text vorlesen
+        audioInfoGlobus.GetComponent<AudioSource>().enabled = true;
         DeactivateAllOutlines();
         GlobusBrainLeft.GetComponent<Outline>().enabled = true;
         GlobusBrainRight.GetComponent<Outline>().enabled = true;
@@ -177,6 +192,7 @@ public class GameManager : MonoBehaviour
         InfoText.GetComponent<TextMesh>().text = "Oft wird diese Stelle ausgenutzt.\n " +
             "Durch Erkrankung überaktiv und mit Impulsen\n wird diese Fehlfunktion wesentlich verbessert.";
         //hier dann auch den entsprechenden Text vorlesen
+        audioInfoDBSNucleus.GetComponent<AudioSource>().enabled = true;
         DeactivateAllOutlines();
         NucleusBrainLeft.GetComponent<Outline>().enabled = true;
         NucleusBrainRight.GetComponent<Outline>().enabled = true;
@@ -204,6 +220,7 @@ public class GameManager : MonoBehaviour
         InfoText.GetComponent<TextMesh>().text = "Diese Stelle wird in Spätphasen der Erkrankung genutzt.\n " +
             "Impulse synchronisieren das Verhalten,\n was gestört wird und lindert so Symptome.";
         //hier dann auch den entsprechenden Text vorlesen
+        audioInfoDBSGlobus.GetComponent<AudioSource>().enabled = true;
         DeactivateAllOutlines();
         GlobusBrainLeft.GetComponent<Outline>().enabled = true;
         GlobusBrainRight.GetComponent<Outline>().enabled = true;
