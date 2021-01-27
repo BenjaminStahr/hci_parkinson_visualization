@@ -59,7 +59,8 @@ public class GameManager : MonoBehaviour
         ElectrodeSTN = GameObject.FindGameObjectsWithTag("ElectrodeSTN");
         electrodeLights = GameObject.FindGameObjectsWithTag("ElectrodeLight");
         electrodeLightsSTN = GameObject.FindGameObjectsWithTag("ElectrodeLightSTN");
-        foreach (GameObject electrode in ElectrodeGP) {
+        // TODO does not work, fix it, outcommented to test rest of app
+        /*foreach (GameObject electrode in ElectrodeGP) {
             electrode.SetActive(false);
             electrode.GetComponent<Light>().enabled = false;
         }
@@ -68,7 +69,7 @@ public class GameManager : MonoBehaviour
         {
             electrode.SetActive(false);
             electrode.GetComponent<Light>().enabled = false;
-        }
+        }*/
         /**
         foreach (GameObject electrodeLight in electrodeLights)
         {

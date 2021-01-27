@@ -28,8 +28,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     Vuforia.UnityExtensions.dll:
     - Vuforia.ImageTargetBehaviour
-    - Vuforia.ModelTargetBehaviour
-    - Vuforia.PreviewModelTurnOffBehaviour
     - Vuforia.TurnOffBehaviour
     - Vuforia.VuforiaBehaviour
     - Vuforia.VuforiaConfiguration
@@ -89,10 +87,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12062}
     - Class: 114
-      Script: {instanceID: 12070}
-    - Class: 114
-      Script: {instanceID: 12080}
-    - Class: 114
       Script: {instanceID: 12084}
     - Class: 114
       Script: {instanceID: 12092}
@@ -109,17 +103,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12770}
     - Class: 114
-      Script: {instanceID: 12940}
+      Script: {instanceID: 12938}
     - Class: 114
-      Script: {instanceID: 12962}
+      Script: {instanceID: 12960}
     - Class: 114
-      Script: {instanceID: 13024}
+      Script: {instanceID: 13022}
     - Class: 114
-      Script: {instanceID: 13170}
+      Script: {instanceID: 13168}
     - Class: 114
-      Script: {instanceID: 13178}
+      Script: {instanceID: 13176}
     - Class: 114
-      Script: {instanceID: 13456}
+      Script: {instanceID: 13454}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -773,7 +767,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: 53e45408519ac2725479da5e91263fa8
+      Hash: 6db8d03d336f0c976996c274deaee27b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayInfoText
@@ -1410,4 +1404,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/sarry/OneDrive/Dokumente/MasterEngSTS/Semester3/ArVr/MiniProject/clickButton4Audio.apk
+  playerPath: C:/Users/Benja/Documents/miniproject/ParkinsonMiniProject/build.apk
