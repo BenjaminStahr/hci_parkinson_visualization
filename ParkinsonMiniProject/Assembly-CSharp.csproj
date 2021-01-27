@@ -57,7 +57,6 @@
   <ItemGroup>
      <Compile Include="Assets\QuickOutline\Scripts\Outline.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Scripts\InfoTextClick.cs" />
      <Compile Include="Assets\Scripts\PlayInfoText.cs" />
      <Compile Include="Assets\Scripts\RotateBrain.cs" />
      <Compile Include="Assets\Scripts\electrodeBehavior.cs" />
