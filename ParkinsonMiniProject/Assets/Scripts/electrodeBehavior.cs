@@ -98,6 +98,7 @@ public class electrodeBehavior : MonoBehaviour
 
     public void StartGlowing()
     {
+        Debug.Log("Start Glowing activated");
         InvokeRepeating("ElectrodeActive", starting, repeating);
     }
 
@@ -110,18 +111,19 @@ public class electrodeBehavior : MonoBehaviour
         string electrodeOn = this.gameObject.tag;
         if (lightUp)
         {   
-            Debug.Log("ElectrodeActive called");
+            Debug.Log("ElectrodeActive called on " + electrodeOn);
+
             int noOfLights = electrodeLights.Length;
             int noOfLightsSTN = electrodeLightsSTN.Length;
             
             if (counter == 0)
-            {   if (electrodeOn == "electrodeGP")
+            {   if (electrodeOn == "ElectrodeGP")
                 {
                     foreach (GameObject electrodeLight in electrodeLights)
                     {
                         electrodeLight.GetComponent<Light>().enabled = false;
                     }
-                } else if (electrodeOn == "electrodeSTN"){
+                } else if (electrodeOn == "ElectrodeSTN"){
                     foreach (GameObject electrodeLight in electrodeLightsSTN)
                     {
                         electrodeLight.GetComponent<Light>().enabled = false;
@@ -130,16 +132,20 @@ public class electrodeBehavior : MonoBehaviour
                 counter++;
             }
             else if (counter <= noOfLights || counter <= noOfLightsSTN)
-            {   if (electrodeOn == "electrodeGP")
+            {   if (electrodeOn == "ElectrodeGP")
                 {
-                    electrodeLights[counter - 1].GetComponent<Light>().enabled = true;
                     electrodeLights[counter - 1].GetComponent<Light>().enabled = true;
                 }
-                else if (electrodeOn == "electrodeSTN")
+                else if (electrodeOn == "ElectrodeSTN")
                 {
-                    electrodeLightsSTN[counter - 1].GetComponent<Light>().enabled = true;
+                    foreach (GameObject electrodeLight in electrodeLightsSTN)
+                    {
+                        //electrodeLight.GetComponent<Light>().enabled = false;
+                        electrodeLightsSTN[counter - 1].GetComponent<Light>().enabled = true;
+                    }
+                    //electrodeLightsSTN[counter - 1].GetComponent<Light>().enabled = true;
                     
-                    electrodeLightsSTN[counter - 1].GetComponent<Light>().enabled = true;
+                    
                 }
                 counter++;
             }
@@ -150,7 +156,7 @@ public class electrodeBehavior : MonoBehaviour
         }
         else
         {
-            counter = 0;
+            //counter = 0;
             Debug.Log("lightUp set false");
             /**
             foreach (GameObject electrodeLight in electrodeLights)

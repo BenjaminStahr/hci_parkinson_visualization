@@ -181,7 +181,7 @@ public class GameManager : MonoBehaviour
         foreach (GameObject electrode in ElectrodeSTN)
         {
             electrode.GetComponent<electrodeBehavior>().specular = true;
-            //problem: specular wird true gesetzt, lightup nicht
+            //problem: kick out following 2 lines does nithing
             electrode.GetComponent<electrodeBehavior>().lightUp = true;
             electrode.GetComponent<electrodeBehavior>().StartGlowing();
         }
