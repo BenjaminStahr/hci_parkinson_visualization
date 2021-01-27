@@ -55,21 +55,15 @@ public class GameManager : MonoBehaviour
         NucleusBrainRight = GameObject.FindGameObjectWithTag("NucleusBrainRight");
         SubtantiaBrainLeft = GameObject.FindGameObjectWithTag("SubtantiaBrainLeft");
         SubtantiaBrainRight = GameObject.FindGameObjectWithTag("SubtantiaBrainRight");
-        ElectrodeGP = GameObject.FindGameObjectsWithTag("ElectrodeGP");
+        //ElectrodeGP = GameObject.FindGameObjectsWithTag("ElectrodeGP");
+        //ElectrodeSTN = GameObject.FindGameObjectsWithTag("ElectrodeSTN");
+        //electrodeLights = GameObject.FindGameObjectsWithTag("ElectrodeLight");
+        //electrodeLightsSTN = GameObject.FindGameObjectsWithTag("ElectrodeLightSTN");
+        ElectrodeGP = GameObject.FindGameObjectsWithTag("ElectrodeGP");       
         ElectrodeSTN = GameObject.FindGameObjectsWithTag("ElectrodeSTN");
         electrodeLights = GameObject.FindGameObjectsWithTag("ElectrodeLight");
         electrodeLightsSTN = GameObject.FindGameObjectsWithTag("ElectrodeLightSTN");
         // TODO does not work, fix it, outcommented to test rest of app
-        /*foreach (GameObject electrode in ElectrodeGP) {
-            electrode.SetActive(false);
-            electrode.GetComponent<Light>().enabled = false;
-        }
-        
-        foreach (GameObject electrode in ElectrodeSTN)
-        {
-            electrode.SetActive(false);
-            electrode.GetComponent<Light>().enabled = false;
-        }*/
         /**
         foreach (GameObject electrodeLight in electrodeLights)
         {
@@ -112,10 +106,12 @@ public class GameManager : MonoBehaviour
                 foreach (GameObject electrode in ElectrodeGP)
                 {
                     electrode.SetActive(true);
+                    //electrode.GetComponent<electrodeBehavior>().lightUp = false;
                 }
                 foreach (GameObject electrode in ElectrodeSTN)
                 {
                     electrode.SetActive(true);
+                    //electrode.GetComponent<electrodeBehavior>().lightUp = false;
                 }
                 
                 //change colours of brain areas
@@ -180,20 +176,29 @@ public class GameManager : MonoBehaviour
         foreach (GameObject electrode in ElectrodeGP)
         {
             electrode.GetComponent<electrodeBehavior>().specular = false;
+            electrode.GetComponent<electrodeBehavior>().lightUp = false;
         }
         foreach (GameObject electrode in ElectrodeSTN)
         {
             electrode.GetComponent<electrodeBehavior>().specular = true;
+            //problem: specular wird true gesetzt, lightup nicht
+            electrode.GetComponent<electrodeBehavior>().lightUp = true;
+            electrode.GetComponent<electrodeBehavior>().StartGlowing();
         }
+        ///** maybe not necessary By just using lightup t/f
         electrodeLights = GameObject.FindGameObjectsWithTag("ElectrodeLight");
         foreach (GameObject electrodeLight in electrodeLights)
         {
             electrodeLight.GetComponent<Light>().enabled = false;
+            //electrodeLight.SetActive(false);
+            //electrodeLight.GetComponentInChildren<Light>().enabled = false;
         }
         electrodeLightsSTN = GameObject.FindGameObjectsWithTag("ElectrodeLightSTN");
         foreach (GameObject electrodeLight in electrodeLightsSTN)
         {
             electrodeLight.GetComponent<Light>().enabled = true;
+            //electrodeLight.SetActive(true);
+            //electrodeLight.GetComponentInChildren<Light>().enabled = true;
         }
     }
     public void SetTextGlobusDBS()
@@ -203,24 +208,34 @@ public class GameManager : MonoBehaviour
         DeactivateAllOutlines();
         GlobusBrainLeft.GetComponent<Outline>().enabled = true;
         GlobusBrainRight.GetComponent<Outline>().enabled = true;
-        foreach (GameObject electrode in ElectrodeSTN)
-        {
-            electrode.GetComponent<electrodeBehavior>().specular = false;
-        }
-        foreach (GameObject electrode in ElectrodeGP)
-        {
-            electrode.GetComponent<electrodeBehavior>().specular = true;
-        }
         electrodeLights = GameObject.FindGameObjectsWithTag("ElectrodeLight");
         foreach (GameObject electrodeLight in electrodeLights)
         {
             electrodeLight.GetComponent<Light>().enabled = true;
+            //electrodeLight.SetActive(true);
         }
         electrodeLightsSTN = GameObject.FindGameObjectsWithTag("ElectrodeLightSTN");
         foreach (GameObject electrodeLight in electrodeLightsSTN)
         {
             electrodeLight.GetComponent<Light>().enabled = false;
+            //electrodeLight.SetActive(false);
         }
+        foreach (GameObject electrode in ElectrodeSTN)
+        {
+            electrode.GetComponent<electrodeBehavior>().specular = false;
+            electrode.GetComponent<electrodeBehavior>().lightUp = false;
+        }
+        foreach (GameObject electrode in ElectrodeGP)
+        {
+            //electrode.SetActive(true);
+            electrode.GetComponent<electrodeBehavior>().specular = true;
+            electrode.GetComponent<electrodeBehavior>().lightUp = true;
+            electrode.GetComponent<electrodeBehavior>().StartGlowing();
+            //wrong postion?? later ? electrode.GetComponent<electrodeBehavior>().ElectrodeActive();
+            //this line does not do anything
+        }
+        
+
     }
         public void DeactivateAllOutlines()
     {
