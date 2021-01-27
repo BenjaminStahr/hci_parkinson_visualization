@@ -23,6 +23,9 @@ TagManager:
   - ElectrodeSTN
   - ElectrodeLight
   - ElectrodeLightSTN
+  - Pallidum
+  - Putamen
+  - Thalamus
   layers:
   - Default
   - TransparentFX
