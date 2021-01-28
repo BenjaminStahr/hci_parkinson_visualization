@@ -15,10 +15,19 @@ public class electrodeBehavior : MonoBehaviour
     int counter = 0;
     public bool lightUp;
     float starting = 000001f;
+
+    // in sec
     float repeating = 0.2f;
+    float SinceLastFrame;
+    bool ShouldLight = false;
+    public int CurrentLightIndex;
+
+
 
     void Start()
     {
+        SinceLastFrame = Time.time;
+        CurrentLightIndex = 1;
         specular = false;
         electrodeLights = GameObject.FindGameObjectsWithTag("ElectrodeLight");
         electrodeLightsSTN = GameObject.FindGameObjectsWithTag("ElectrodeLightSTN");
@@ -43,6 +52,21 @@ public class electrodeBehavior : MonoBehaviour
     {
         LightUp();
         LightOff();
+
+        if (specular)
+        {
+            if (Time.time - SinceLastFrame > repeating)
+            {
+                SinceLastFrame = Time.time;
+                if (CurrentLightIndex < gameObject.transform.GetChildCount() - 1)
+                {
+                    gameObject.transform.GetChild(CurrentLightIndex).GetComponent<Light>().enabled = true;
+                    CurrentLightIndex++;
+                }
+            }
+        }
+
+
     }
     void LightUp()
     {
@@ -96,14 +120,15 @@ public class electrodeBehavior : MonoBehaviour
         }
     }
 
-    public void StartGlowing()
+    /*public void StartGlowing()
     {
         Debug.Log("Start Glowing activated");
-        InvokeRepeating("ElectrodeActive", starting, repeating);
-    }
+        //ShouldLight = true;
+        //InvokeRepeating("ElectrodeActive", starting, repeating);
+    }*/
 
     //let spotlights light up after each other
-    public void ElectrodeActive()
+    /*public void ElectrodeActive()
     {
         //ist bei allen immer an, wenn man Funktionalität überhaupt will
         //und alle fangen an zu leuchtenn
@@ -166,7 +191,7 @@ public class electrodeBehavior : MonoBehaviour
             foreach (GameObject electrodeLight in electrodeLightsSTN)
             {
                 electrodeLight.GetComponent<Light>().enabled = false;
-            }*/
+            }
         }
-    }
+    }*/
 }
