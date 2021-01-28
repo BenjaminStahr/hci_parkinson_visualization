@@ -6,7 +6,8 @@ using UnityEngine;
 public enum AppState
 {
     Information,
-    DBS
+    DBS,
+    Loop
 }
 
 public class GameManager : MonoBehaviour
@@ -26,6 +27,12 @@ public class GameManager : MonoBehaviour
     public GameObject NucleusBrainRight;
     public GameObject SubtantiaBrainLeft;
     public GameObject SubtantiaBrainRight;
+    public GameObject PutamenLeft;
+    public GameObject PutamenRight;
+    public GameObject ThalamusLeft;
+    public GameObject ThalamusRight;
+    public GameObject CortexRight;
+    public GameObject CortexLeft;
     public GameObject[] ElectrodeGP;
     public GameObject[] ElectrodeSTN;
     public GameObject[] electrodeLights;
@@ -36,7 +43,9 @@ public class GameManager : MonoBehaviour
     Color DBSGlobusColor = new Color32(253,241,5,255);
     Color InfoNucleusColor = new Color32(10,43,253,255);
     Color InfoGlobusColor = new Color32(253,178,5,255);
-
+    Color LoopPartColor = new Color32(239, 255, 0, 255);
+    
+    //250, 241, 39, 255
     // Start is called before the first frame update
     void Start()
     {
@@ -55,10 +64,13 @@ public class GameManager : MonoBehaviour
         NucleusBrainRight = GameObject.FindGameObjectWithTag("NucleusBrainRight");
         SubtantiaBrainLeft = GameObject.FindGameObjectWithTag("SubtantiaBrainLeft");
         SubtantiaBrainRight = GameObject.FindGameObjectWithTag("SubtantiaBrainRight");
-        //ElectrodeGP = GameObject.FindGameObjectsWithTag("ElectrodeGP");
-        //ElectrodeSTN = GameObject.FindGameObjectsWithTag("ElectrodeSTN");
-        //electrodeLights = GameObject.FindGameObjectsWithTag("ElectrodeLight");
-        //electrodeLightsSTN = GameObject.FindGameObjectsWithTag("ElectrodeLightSTN");
+        PutamenLeft = GameObject.FindGameObjectWithTag("PutamenLeft");
+        PutamenRight = GameObject.FindGameObjectWithTag("PutamenRight");
+        ThalamusLeft = GameObject.FindGameObjectWithTag("ThalamusLeft");
+        ThalamusRight = GameObject.FindGameObjectWithTag("ThalamusRight");
+        CortexLeft = GameObject.FindGameObjectWithTag("CortexLeft");
+        CortexRight = GameObject.FindGameObjectWithTag("CortexRight");
+        ThalamusRight = GameObject.FindGameObjectWithTag("ThalamusRight");
         ElectrodeGP = GameObject.FindGameObjectsWithTag("ElectrodeGP");       
         ElectrodeSTN = GameObject.FindGameObjectsWithTag("ElectrodeSTN");
         electrodeLights = GameObject.FindGameObjectsWithTag("ElectrodeLight");
@@ -71,6 +83,12 @@ public class GameManager : MonoBehaviour
         }*/
         GlobusDBSButton.SetActive(false);
         NucleusDBSButton.SetActive(false);
+        PutamenLeft.SetActive(false);
+        PutamenRight.SetActive(false);
+        ThalamusRight.SetActive(false);
+        ThalamusLeft.SetActive(false);
+        CortexLeft.SetActive(false);
+        CortexRight.SetActive(false);
     }
 
     void Update()
@@ -98,20 +116,25 @@ public class GameManager : MonoBehaviour
                 NucleusBrainRight.GetComponent<Renderer>().material.color = InfoNucleusColor;
                 break;
             case AppState.DBS:
+                PutamenLeft.SetActive(false);
+                PutamenRight.SetActive(false);
+                ThalamusRight.SetActive(false);
+                ThalamusLeft.SetActive(false);
+                CortexLeft.SetActive(false);
+                CortexRight.SetActive(false);
                 NucleusButton.SetActive(false);
                 SubtantiaButton.SetActive(false);
                 GlobusButton.SetActive(false);
                 GlobusDBSButton.SetActive(true);
                 NucleusDBSButton.SetActive(true);
+
                 foreach (GameObject electrode in ElectrodeGP)
                 {
                     electrode.SetActive(true);
-                    //electrode.GetComponent<electrodeBehavior>().lightUp = false;
                 }
                 foreach (GameObject electrode in ElectrodeSTN)
                 {
                     electrode.SetActive(true);
-                    //electrode.GetComponent<electrodeBehavior>().lightUp = false;
                 }
                 
                 //change colours of brain areas
@@ -119,6 +142,44 @@ public class GameManager : MonoBehaviour
                 GlobusBrainRight.GetComponent<Renderer>().material.color = DBSGlobusColor;
                 NucleusBrainLeft.GetComponent<Renderer>().material.color = DBSNucleusColor;
                 NucleusBrainRight.GetComponent<Renderer>().material.color = DBSNucleusColor;
+                break;
+            case AppState.Loop:
+                Debug.Log("app state loop");
+                PutamenLeft.SetActive(true);
+                PutamenRight.SetActive(true);
+                ThalamusRight.SetActive(true);
+                ThalamusLeft.SetActive(true);
+                CortexLeft.SetActive(true);
+                CortexRight.SetActive(true);
+                
+                ThalamusRight.GetComponent<Renderer>().material.color = LoopPartColor;
+                ThalamusLeft.GetComponent<Renderer>().material.color = LoopPartColor;
+                PutamenRight.GetComponent<Renderer>().material.color = LoopPartColor;
+                PutamenLeft.GetComponent<Renderer>().material.color = LoopPartColor;
+                CortexLeft.GetComponent<Renderer>().material.color = LoopPartColor;
+                CortexRight.GetComponent<Renderer>().material.color = LoopPartColor;
+                //Globus Pallidus also part of loop
+                GlobusBrainLeft.GetComponent<Renderer>().material.color = LoopPartColor;
+                GlobusBrainRight.GetComponent<Renderer>().material.color = LoopPartColor;
+                NucleusButton.SetActive(false);
+                SubtantiaButton.SetActive(false);
+                GlobusButton.SetActive(false);
+                GlobusDBSButton.SetActive(false);
+                NucleusDBSButton.SetActive(false);
+                PutamenLeft.GetComponent<Outline>().enabled = true;
+                PutamenRight.GetComponent<Outline>().enabled = true;
+                ThalamusLeft.GetComponent<Outline>().enabled = true;
+                ThalamusRight.GetComponent<Outline>().enabled = true;
+                CortexRight.GetComponent<Outline>().enabled = true;
+                CortexLeft.GetComponent<Outline>().enabled = true;
+                foreach (GameObject electrode in ElectrodeGP)
+                {
+                    electrode.SetActive(false);
+                }
+                foreach (GameObject electrode in ElectrodeSTN)
+                {
+                    electrode.SetActive(false);
+                }
                 break;
             default:
                 break;
@@ -128,13 +189,18 @@ public class GameManager : MonoBehaviour
     {
         if (current == AppState.Information)
         {
-            current = AppState.DBS;
-            ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "DBS";
+            current = AppState.Loop;
+            ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Loop";
         }
-        else
+        else if (current == AppState.DBS)
         {
             current = AppState.Information;
             ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Information";
+        }
+        else
+        {
+            current = AppState.DBS;
+            ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "DBS";
         }
     }
 
@@ -247,5 +313,11 @@ public class GameManager : MonoBehaviour
         SubtantiaBrainRight.GetComponent<Outline>().enabled = false;
         NucleusBrainLeft.GetComponent<Outline>().enabled = false;
         NucleusBrainRight.GetComponent<Outline>().enabled = false;
+        PutamenLeft.GetComponent<Outline>().enabled = false;
+        PutamenRight.GetComponent<Outline>().enabled = false;
+        ThalamusLeft.GetComponent<Outline>().enabled = false;
+        ThalamusRight.GetComponent<Outline>().enabled = false;
+        CortexRight.GetComponent<Outline>().enabled = false;
+        CortexLeft.GetComponent<Outline>().enabled = false;
     }
 }

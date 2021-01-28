@@ -26,6 +26,12 @@ TagManager:
   - Pallidum
   - Putamen
   - Thalamus
+  - PutamenLeft
+  - PutamenRight
+  - ThalamusLeft
+  - ThalamusRight
+  - CortexLeft
+  - CortexRight
   layers:
   - Default
   - TransparentFX
