@@ -44,8 +44,8 @@ public class GameManager : MonoBehaviour
     Color InfoNucleusColor = new Color32(10,43,253,255);
     Color InfoGlobusColor = new Color32(253,178,5,255);
     Color LoopPartColor = new Color32(239, 255, 0, 255);
+    Color OutlineColor = new Color32(0, 185, 255, 255);
     
-    //250, 241, 39, 255
     // Start is called before the first frame update
     void Start()
     {
@@ -110,12 +110,15 @@ public class GameManager : MonoBehaviour
                     electrode.SetActive(false);
                 }
                 //change colours of brain areas
+                
                 GlobusBrainLeft.GetComponent<Renderer>().material.color = InfoGlobusColor;
                 GlobusBrainRight.GetComponent<Renderer>().material.color = InfoGlobusColor;
                 NucleusBrainLeft.GetComponent<Renderer>().material.color = InfoNucleusColor;
                 NucleusBrainRight.GetComponent<Renderer>().material.color = InfoNucleusColor;
                 break;
             case AppState.DBS:
+                GlobusBrainLeft.SetActive(true);
+                GlobusBrainRight.SetActive(true);
                 PutamenLeft.SetActive(false);
                 PutamenRight.SetActive(false);
                 ThalamusRight.SetActive(false);
@@ -136,8 +139,12 @@ public class GameManager : MonoBehaviour
                 {
                     electrode.SetActive(true);
                 }
-                
+
                 //change colours of brain areas
+                GlobusBrainLeft.GetComponent<Outline>().OutlineColor = OutlineColor;
+                GlobusBrainRight.GetComponent<Outline>().OutlineColor = OutlineColor;
+                GlobusBrainLeft.GetComponent<Outline>().OutlineWidth = 2;
+                GlobusBrainRight.GetComponent<Outline>().OutlineWidth = 2;
                 GlobusBrainLeft.GetComponent<Renderer>().material.color = DBSGlobusColor;
                 GlobusBrainRight.GetComponent<Renderer>().material.color = DBSGlobusColor;
                 NucleusBrainLeft.GetComponent<Renderer>().material.color = DBSNucleusColor;
@@ -180,6 +187,9 @@ public class GameManager : MonoBehaviour
                 {
                     electrode.SetActive(false);
                 }
+                PutamenLeft.GetComponent<MotorLoopBehavior>().looping = true;
+                //TotalBrain.GetComponent<MotorLoopBehavior>().looping = true;
+                //this.GetComponent<MotorLoopBehavior>().looping = true;
                 break;
             default:
                 break;
