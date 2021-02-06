@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="unityMarker" size="3.000000 3.000000" />
+    <ImageTarget name="qrMarkerTest" size="3.000000 3.000000" />
     <ImageTarget name="brainMarkerChristmas" size="3.000000 2.250465" />
+    <ImageTarget name="brainMarker" size="3.000000 2.250000" />
+    <ImageTarget name="WBriefRueck" size="1.000000 0.750000" />
+    <ImageTarget name="brief" size="0.120000 0.160000" />
+    <ImageTarget name="Webpnetcompressimage" size="0.100000 0.133353" />
+    <ImageTarget name="marker" size="0.080000 0.106682" />
   </Tracking>
 </QCARConfig>

@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - GameManager
+    - MotorLoopBehavior
     - Outline
     - PlayInfoText
     - RotateBrain
@@ -28,6 +29,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     Vuforia.UnityExtensions.dll:
     - Vuforia.ImageTargetBehaviour
+    - Vuforia.ModelTargetBehaviour
+    - Vuforia.PreviewModelTurnOffBehaviour
     - Vuforia.TurnOffBehaviour
     - Vuforia.VuforiaBehaviour
     - Vuforia.VuforiaConfiguration
@@ -56,6 +59,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 82
@@ -69,51 +74,57 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11450}
+      Script: {instanceID: 11452}
     - Class: 114
-      Script: {instanceID: 11466}
+      Script: {instanceID: 11468}
     - Class: 114
-      Script: {instanceID: 11654}
+      Script: {instanceID: 11656}
     - Class: 114
-      Script: {instanceID: 11776}
-    - Class: 114
-      Script: {instanceID: 11940}
+      Script: {instanceID: 11778}
     - Class: 114
       Script: {instanceID: 11942}
     - Class: 114
-      Script: {instanceID: 12050}
+      Script: {instanceID: 11944}
     - Class: 114
-      Script: {instanceID: 12076}
+      Script: {instanceID: 12052}
     - Class: 114
-      Script: {instanceID: 12170}
+      Script: {instanceID: 12078}
     - Class: 114
-      Script: {instanceID: 12192}
+      Script: {instanceID: 12172}
     - Class: 114
-      Script: {instanceID: 12200}
+      Script: {instanceID: 12180}
+    - Class: 114
+      Script: {instanceID: 12190}
+    - Class: 114
+      Script: {instanceID: 12194}
     - Class: 114
       Script: {instanceID: 12202}
     - Class: 114
-      Script: {instanceID: 12520}
+      Script: {instanceID: 12204}
     - Class: 114
-      Script: {instanceID: 12640}
+      Script: {instanceID: 12522}
     - Class: 114
-      Script: {instanceID: 12832}
+      Script: {instanceID: 12642}
     - Class: 114
-      Script: {instanceID: 12862}
+      Script: {instanceID: 12834}
     - Class: 114
-      Script: {instanceID: 12878}
+      Script: {instanceID: 12864}
     - Class: 114
-      Script: {instanceID: 13046}
+      Script: {instanceID: 12880}
     - Class: 114
-      Script: {instanceID: 13068}
+      Script: {instanceID: 13048}
     - Class: 114
-      Script: {instanceID: 13130}
+      Script: {instanceID: 13070}
     - Class: 114
-      Script: {instanceID: 13276}
+      Script: {instanceID: 13132}
     - Class: 114
-      Script: {instanceID: 13284}
+      Script: {instanceID: 13164}
     - Class: 114
-      Script: {instanceID: 13562}
+      Script: {instanceID: 13280}
+    - Class: 114
+      Script: {instanceID: 13288}
+    - Class: 114
+      Script: {instanceID: 13566}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -893,13 +904,19 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
+      Hash: d9855f928762736567c501dfbe1e6a67
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MotorLoopBehavior
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: MarkerTrack
   - hash:
       serializedVersion: 2
-      Hash: 70f21729309747a6a440eb7ee029d794
+      Hash: 9da3ecd40acd873ff07d173a902bb517
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager

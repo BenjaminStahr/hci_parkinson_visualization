@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARInfo>
+<TargetSet version="20.0" toolVersion="9.6.3">
+<ModelTarget name="brainstem" targetId="deb43d8b02de4d85b4bd2cee40fd88f8" version="11.1" toolVersion="9.6.3" bbox="-0.003592 0.000790 0.011627 0.020535 0.032885 0.026554" previewImage="deb43d8b02de4d85b4bd2cee40fd88f8_preview.jpg"/>
+
+</TargetSet>
+
+<Assembly name="brainstems_assembly" assemblyId="248a7db2edb74654b193c0f8aebe41e3">
+<Part name="brainstem" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="viewpoint_0001" translation="0.00867471 0.00633907 0.0832597" rotation="AD: 0.9999999999776699 0.0012868275685740725 -0.005341903547404574 207.088" image="brainstem_viewpoint_0001.png" trained="yes">
+
+</EntryPoint>
+
+</Assembly>
+
+</QCARInfo>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="brainstem" motionHint="adaptive" trackingMode="scan"/>
+
+</Tracking>
+
+<Assembly name="brainstems_assembly" assemblyId="248a7db2edb74654b193c0f8aebe41e3">
+<Part name="brainstem" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="viewpoint_0001" translation="0.00867471 0.00633907 0.0832597" rotation="AD: 0.9999999999776699 0.0012868275685740725 -0.005341903547404574 207.088" trained="yes">
+
+</EntryPoint>
+
+</Assembly>
+
+</QCARConfig>

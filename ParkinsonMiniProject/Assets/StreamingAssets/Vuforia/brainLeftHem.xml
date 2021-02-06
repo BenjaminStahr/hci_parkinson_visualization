@@ -7,7 +7,7 @@
 
 <Assembly name="brainLeftHems_assembly" assemblyId="6ffa42aeab664182bdb159ff53542503">
 <Part name="brainLeftHem" translation="0 0 0" rotation="AD: 0 0 1 0"/>
-<EntryPoint name="viewpoint_0000" translation="0.322996 0.0901415 1.09807" rotation="AD: 0.9999848701645153 -0.034946328603053314 0.16310605135494308 203.866" trained="no">
+<EntryPoint name="viewpoint_0000" translation="0.353921 0.14086 1.03485" rotation="AD: 0.9999994258664718 -0.012749749146478492 0.08528889934155104 196.942" trained="no">
 
 </EntryPoint>
 
