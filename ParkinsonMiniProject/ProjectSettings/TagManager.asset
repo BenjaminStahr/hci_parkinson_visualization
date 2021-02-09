@@ -32,6 +32,9 @@ TagManager:
   - ThalamusRight
   - CortexLeft
   - CortexRight
+  - BasalGanglia
+  - ThalamusButton
+  - MotorCortex
   layers:
   - Default
   - TransparentFX

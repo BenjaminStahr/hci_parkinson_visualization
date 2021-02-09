@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     public GameObject NucleusButton;
     public GameObject GlobusDBSButton;
     public GameObject NucleusDBSButton;
+    public GameObject BasalButton;
+    public GameObject ThalamusButton;
+    public GameObject CortexButton;
     public GameObject InfoText;
     public GameObject TotalBrain;
     public GameObject GlobusBrainLeft;
@@ -56,6 +59,9 @@ public class GameManager : MonoBehaviour
         NucleusButton = GameObject.FindGameObjectWithTag("Nucleus");
         GlobusDBSButton = GameObject.FindGameObjectWithTag("GlobusDBS");
         NucleusDBSButton = GameObject.FindGameObjectWithTag("NucleusDBS");
+        BasalButton = GameObject.FindGameObjectWithTag("BasalGanglia");
+        ThalamusButton = GameObject.FindGameObjectWithTag("ThalamusButton");
+        CortexButton = GameObject.FindGameObjectWithTag("MotorCortex");
         InfoText = GameObject.FindGameObjectWithTag("InfoText");
         TotalBrain = GameObject.FindGameObjectWithTag("Brain");
         GlobusBrainLeft = GameObject.FindGameObjectWithTag("GlobusBrainLeft");
@@ -83,6 +89,9 @@ public class GameManager : MonoBehaviour
         }*/
         GlobusDBSButton.SetActive(false);
         NucleusDBSButton.SetActive(false);
+        BasalButton.SetActive(false);
+        ThalamusButton.SetActive(false);
+        CortexButton.SetActive(false);
         PutamenLeft.SetActive(false);
         PutamenRight.SetActive(false);
         ThalamusRight.SetActive(false);
@@ -101,6 +110,9 @@ public class GameManager : MonoBehaviour
                 GlobusButton.SetActive(true);
                 GlobusDBSButton.SetActive(false);
                 NucleusDBSButton.SetActive(false);
+                BasalButton.SetActive(false);
+                ThalamusButton.SetActive(false);
+                CortexButton.SetActive(false);
                 foreach (GameObject electrode in ElectrodeGP)
                 {
                     electrode.SetActive(false);
@@ -130,6 +142,9 @@ public class GameManager : MonoBehaviour
                 GlobusButton.SetActive(false);
                 GlobusDBSButton.SetActive(true);
                 NucleusDBSButton.SetActive(true);
+                BasalButton.SetActive(false);
+                ThalamusButton.SetActive(false);
+                CortexButton.SetActive(false);
 
                 foreach (GameObject electrode in ElectrodeGP)
                 {
@@ -158,6 +173,8 @@ public class GameManager : MonoBehaviour
                 ThalamusLeft.SetActive(true);
                 CortexLeft.SetActive(true);
                 CortexRight.SetActive(true);
+
+                SetTextLoops();
                 
                 ThalamusRight.GetComponent<Renderer>().material.color = LoopPartColor;
                 ThalamusLeft.GetComponent<Renderer>().material.color = LoopPartColor;
@@ -172,7 +189,10 @@ public class GameManager : MonoBehaviour
                 SubtantiaButton.SetActive(false);
                 GlobusButton.SetActive(false);
                 GlobusDBSButton.SetActive(false);
-                NucleusDBSButton.SetActive(false);
+                NucleusDBSButton.SetActive(false); 
+                BasalButton.SetActive(true);
+                ThalamusButton.SetActive(true);
+                CortexButton.SetActive(true);
                 PutamenLeft.GetComponent<Outline>().enabled = true;
                 PutamenRight.GetComponent<Outline>().enabled = true;
                 ThalamusLeft.GetComponent<Outline>().enabled = true;
@@ -216,36 +236,39 @@ public class GameManager : MonoBehaviour
 
     public void SetTextNucleus()
     {
-        InfoText.GetComponent<TextMesh>().text = "Er ist bei  Parkinson überaktiv.\n " +
-            "Löst primär das Zittern/Ruhetremor aus. \n" +
-            "Durch die Krankheit wird der Thalamus gehemmt, " +
-            "was die Anregung\n des Motorcortex (gibt Bewegungsbefehle an Muskeln)\n weniger wahrscheinlich macht.";
+        InfoText.GetComponent<TextMesh>().text = "Der Nucleus subthalamicus ist bei Parkinson\n " +
+            "überaktiv und löst primär das Zittern/ \n" +
+            "Ruhetremor aus. Durch die Krankheit wird der \n" +
+            "Thalamus gehemmt, was die Anregung des \n Motorcortex (gibt Bewegungsbefehle an\n Muskeln) weniger wahrscheinlich macht.";
         DeactivateAllOutlines();
         NucleusBrainLeft.GetComponent<Outline>().enabled = true;
         NucleusBrainRight.GetComponent<Outline>().enabled = true;
     }
     public void SetTextSubtantia()
     {
-        InfoText.GetComponent<TextMesh>().text = "Sie liegt nahe dem Hirnstamm, welcher\n Bewegungen berechnet und einleitet. " +
-            "Die Stelle reagiert auf Dopamin,\n um richtig zu funktionieren." +
-            " Die Substantia Nigra besteht z.T.\n aus dopamin-liefernde Nerven,\n" +
-            " welche bei Parkinson absterben. Sie ist die Stelle im Kopf,\n die am meisten betroffen ist.";
+        InfoText.GetComponent<TextMesh>().text = "Die Substantia nigra liegt nahe dem \n Hirnstamm, welcher auf Bewegungen berechnet " +
+            "und einleitet. Die Stelle reagiert auf \n Dopamin um richtig zu funktionieren. Die" +
+            " Substantia Nigra besteht z.T. aus dopamin-\n liefernden Nerven, welche bei Parkinson \n" +
+            " absterben. Sie ist die Stelle im Kopf, die \n am stärksten betroffen ist.";
         DeactivateAllOutlines();
         SubtantiaBrainLeft.GetComponent<Outline>().enabled = true;
         SubtantiaBrainRight.GetComponent<Outline>().enabled = true;
     }
     public void SetTextGlobus()
     {
-        InfoText.GetComponent<TextMesh>().text = "Weiteres Nervenzentrum für Balance, Bewegung und Laufen.\n " +
-            "Unterversorgung, z.B. mit Dopamin, führt\n zu gestörter Funktionalität.";
+        InfoText.GetComponent<TextMesh>().text = "Der Globus pallidus ist ein weiteres \n " +
+            "Nervenzentrum für Balance, Bewegung und \n Laufen. Eine Unterversorgung dieses Bereiches \n" +
+            "beispielsweise aufgrund der Parkinson- \n erkrankung, z.B. mit Dopamin, führt zu \n" +
+            "einer gestörten Funktionalität.";
         DeactivateAllOutlines();
         GlobusBrainLeft.GetComponent<Outline>().enabled = true;
         GlobusBrainRight.GetComponent<Outline>().enabled = true;
     }
     public void SetTextNucleusDBS()
     {
-        InfoText.GetComponent<TextMesh>().text = "Oft wird diese Stelle ausgenutzt.\n " +
-            "Durch Erkrankung überaktiv und mit Impulsen\n wird diese Fehlfunktion wesentlich verbessert.";
+        InfoText.GetComponent<TextMesh>().text = "Für eine Therapie mit der Tiefenhirnstimulation\n " +
+            "wird oft der subthalamische Nucleus gewählt.\n Da dieser durch die Erkrankung überaktiv ist \n" +
+            "und Impulse diese Fehlfunktion wesentlich \n reduzieren können.";
         DeactivateAllOutlines();
         NucleusBrainLeft.GetComponent<Outline>().enabled = true;
         NucleusBrainRight.GetComponent<Outline>().enabled = true;
@@ -280,8 +303,9 @@ public class GameManager : MonoBehaviour
     }
     public void SetTextGlobusDBS()
     {
-        InfoText.GetComponent<TextMesh>().text = "Diese Stelle wird in Spätphasen der Erkrankung genutzt.\n " +
-            "Impulse synchronisieren das Verhalten,\n was gestört wird und lindert so Symptome.";
+        InfoText.GetComponent<TextMesh>().text = "Der Globus pallidus wird bei der Tiefenhirn-\n " +
+            "stimulation in der Spätphase der Erkrankung \n genutzt. Elektrische Impulse führen dort zu \n" +
+            "einer Synchornisation des gestörten \n Verhaltens und lindern so Symptome.";
         DeactivateAllOutlines();
         GlobusBrainLeft.GetComponent<Outline>().enabled = true;
         GlobusBrainRight.GetComponent<Outline>().enabled = true;
@@ -314,6 +338,15 @@ public class GameManager : MonoBehaviour
         }
         
 
+    }
+    public void SetTextLoops()
+    {
+        InfoText.GetComponent<TextMesh>().text = "Die hauptsächlich betroffenen Bereiche \n bei Parkinson sind Teil der sogenannten \n" +
+            "Basal Ganglien, ein Komplex im Hirn, der \n ungewollte Bewegungen unterbindet und  \n" +
+            "gewollte auslöst. Das passiert durch \n Aktivierung bestimmter Areale in der hier \n" +
+            "dargestellten fortlaufenden Schleife. \n Parkinson behindert den richtigen Ablauf \n" +
+            "und erzeugt so die bekannten Symptome.";
+        DeactivateAllOutlines();
     }
         public void DeactivateAllOutlines()
     {
