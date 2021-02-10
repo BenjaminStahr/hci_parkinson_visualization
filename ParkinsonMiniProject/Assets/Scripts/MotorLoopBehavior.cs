@@ -95,6 +95,16 @@ public class MotorLoopBehavior : MonoBehaviour
     {
 
     }
+    public void ResetSettings()
+    {
+        for (int i = 0; i < leftParts.Length; i++)
+        {
+            leftParts[i].GetComponent<Outline>().OutlineWidth = 0;
+            rightParts[i].GetComponent<Outline>().OutlineWidth = 0;
+        }
+        CurrentAreaIndex = 0;
+
+    }
     public void VisibilityCheck()
     {
         //Manually making object visible for 

@@ -233,6 +233,8 @@ public class GameManager : MonoBehaviour
     {
         if (current == AppState.Information)
         {
+            PutamenLeft.GetComponent<MotorLoopBehavior>().ResetSettings();
+            ResetElectrodes();
             DeactivateAllOutlines();
             InfoText.GetComponent<TextMesh>().text = "Drücken Sie einen Knopf.";
             current = AppState.Loop;
@@ -241,17 +243,25 @@ public class GameManager : MonoBehaviour
         }
         else if (current == AppState.DBS)
         {
+            PutamenLeft.GetComponent<MotorLoopBehavior>().ResetSettings();
+            ResetElectrodes();
             DeactivateAllOutlines();
             InfoText.GetComponent<TextMesh>().text = "Drücken Sie einen Knopf.";
             current = AppState.Information;
             ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Information";
+            GlobusBrainLeft.GetComponent<Outline>().OutlineWidth = 2;
+            GlobusBrainRight.GetComponent<Outline>().OutlineWidth = 2;
         }
         else
         {
+            PutamenLeft.GetComponent<MotorLoopBehavior>().ResetSettings();
+            ResetElectrodes();
             DeactivateAllOutlines();
             InfoText.GetComponent<TextMesh>().text = "Drücken Sie einen Knopf.";
             current = AppState.DBS;
             ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Tiefenhirn- \n stimualtion";
+            GlobusBrainLeft.GetComponent<Outline>().OutlineWidth = 2;
+            GlobusBrainRight.GetComponent<Outline>().OutlineWidth = 2;
         }
     }
 
@@ -264,13 +274,19 @@ public class GameManager : MonoBehaviour
     {
         if (current == AppState.Information)
         {
+            PutamenLeft.GetComponent<MotorLoopBehavior>().ResetSettings();
+            ResetElectrodes();
             DeactivateAllOutlines();
             InfoText.GetComponent<TextMesh>().text = "Drücken Sie einen Knopf.";
             current = AppState.DBS;
             ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Tiefenhirn- \n stimualtion";
+            GlobusBrainLeft.GetComponent<Outline>().OutlineWidth = 2;
+            GlobusBrainRight.GetComponent<Outline>().OutlineWidth = 2;
         }
         else if (current == AppState.DBS)
         {
+            PutamenLeft.GetComponent<MotorLoopBehavior>().ResetSettings();
+            ResetElectrodes();
             DeactivateAllOutlines();
             InfoText.GetComponent<TextMesh>().text = "Drücken Sie einen Knopf.";
             current = AppState.Loop;
@@ -279,10 +295,14 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            PutamenLeft.GetComponent<MotorLoopBehavior>().ResetSettings();
+            ResetElectrodes();
             DeactivateAllOutlines();
             InfoText.GetComponent<TextMesh>().text = "Drücken Sie einen Knopf.";
             current = AppState.Information;
             ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Information";
+            GlobusBrainLeft.GetComponent<Outline>().OutlineWidth = 2;
+            GlobusBrainRight.GetComponent<Outline>().OutlineWidth = 2;
         }
     }
 
@@ -414,5 +434,30 @@ public class GameManager : MonoBehaviour
         ThalamusRight.GetComponent<Outline>().enabled = false;
         CortexRight.GetComponent<Outline>().enabled = false;
         CortexLeft.GetComponent<Outline>().enabled = false;
+    }
+    public void ResetElectrodes()
+    {
+        electrodeLights = GameObject.FindGameObjectsWithTag("ElectrodeLight");
+        foreach (GameObject electrodeLight in electrodeLights)
+        {
+            electrodeLight.GetComponent<Light>().enabled = false;
+            //electrodeLight.SetActive(true);
+        }
+        electrodeLightsSTN = GameObject.FindGameObjectsWithTag("ElectrodeLightSTN");
+        foreach (GameObject electrodeLight in electrodeLightsSTN)
+        {
+            electrodeLight.GetComponent<Light>().enabled = false;
+            //electrodeLight.SetActive(false);
+        }
+        foreach (GameObject electrode in ElectrodeSTN)
+        {
+            electrode.GetComponent<electrodeBehavior>().specular = false;
+            electrode.GetComponent<electrodeBehavior>().lightUp = false;
+        }
+        foreach (GameObject electrode in ElectrodeGP)
+        {
+            electrode.GetComponent<electrodeBehavior>().specular = false;
+            electrode.GetComponent<electrodeBehavior>().lightUp = false;
+        }
     }
 }
