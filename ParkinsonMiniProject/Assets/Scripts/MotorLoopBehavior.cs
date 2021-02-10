@@ -28,7 +28,6 @@ public class MotorLoopBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //isVisible = false;
         GlobusBrainLeft = GameObject.FindGameObjectWithTag("GlobusBrainLeft");
         GlobusBrainRight = GameObject.FindGameObjectWithTag("GlobusBrainRight");
         PutamenLeft = GameObject.FindGameObjectWithTag("PutamenLeft");
@@ -45,7 +44,8 @@ public class MotorLoopBehavior : MonoBehaviour
 
         SinceLastFrame = Time.time;
         CurrentAreaIndex = 0;
-        GetComponentInParent<GameManager>().DeactivateAllOutlines();
+        //GetComponentInParent<GameManager>().DeactivateAllOutlines();
+        looping = false;
     }
 
     // Update is called once per frame
@@ -55,6 +55,8 @@ public class MotorLoopBehavior : MonoBehaviour
         //ChangeAreaColor();
         //InvokeRepeating("ShowMotorLoop", starting, repeating);
         if (looping) {
+            
+
             if (Time.time - SinceLastFrame > repeating)
             {
                 SinceLastFrame = Time.time;
@@ -68,13 +70,10 @@ public class MotorLoopBehavior : MonoBehaviour
                     {
                         leftParts[leftParts.Length - 1].GetComponent<Outline>().OutlineWidth = 0;
                         rightParts[leftParts.Length - 1].GetComponent<Outline>().OutlineWidth = 0;
-                        GlobusBrainLeft.GetComponent<Outline>().OutlineWidth = 0;
-                        GlobusBrainRight.GetComponent<Outline>().OutlineWidth = 0;
-                        GlobusBrainLeft.GetComponent<Outline>().OutlineColor = LoopCurrentColor;
-                        GlobusBrainRight.GetComponent<Outline>().OutlineColor = LoopCurrentColor;
-                        //CurrentAreaIndex = 0;
                     }
 
+                    leftParts[CurrentAreaIndex].GetComponent<Outline>().enabled = true;
+                    rightParts[CurrentAreaIndex].GetComponent<Outline>().enabled = true;
                     leftParts[CurrentAreaIndex].GetComponent<Outline>().OutlineColor = LoopCurrentColor;
                     rightParts[CurrentAreaIndex].GetComponent<Outline>().OutlineColor = LoopCurrentColor;
                     leftParts[CurrentAreaIndex].GetComponent<Outline>().OutlineWidth = 7;
@@ -89,6 +88,7 @@ public class MotorLoopBehavior : MonoBehaviour
                 }
             }
         }
+        
     }
 
     public void ShowMotorLoop()
@@ -120,4 +120,14 @@ public class MotorLoopBehavior : MonoBehaviour
             areaMeshRenderer.material = baseColor;
         }
     }
+    public void EnableOutlines()
+    {
+        PutamenLeft.GetComponent<Outline>().enabled = true;
+        PutamenRight.GetComponent<Outline>().enabled = true;
+        ThalamusLeft.GetComponent<Outline>().enabled = true;
+        ThalamusRight.GetComponent<Outline>().enabled = true;
+        CortexRight.GetComponent<Outline>().enabled = true;
+        CortexLeft.GetComponent<Outline>().enabled = true;
+    }
+    
 }

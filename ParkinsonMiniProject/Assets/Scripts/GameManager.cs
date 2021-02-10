@@ -41,7 +41,6 @@ public class GameManager : MonoBehaviour
     public GameObject[] electrodeLights;
     public GameObject[] electrodeLightsSTN;
 
-    int rotationSpeed = 15;
     Color DBSNucleusColor = new Color32(2,232,253,255);
     Color DBSGlobusColor = new Color32(253,241,5,255);
     Color InfoNucleusColor = new Color32(10,43,253,255);
@@ -92,12 +91,13 @@ public class GameManager : MonoBehaviour
         BasalButton.SetActive(false);
         ThalamusButton.SetActive(false);
         CortexButton.SetActive(false);
-        PutamenLeft.SetActive(false);
-        PutamenRight.SetActive(false);
-        ThalamusRight.SetActive(false);
-        ThalamusLeft.SetActive(false);
-        CortexLeft.SetActive(false);
-        CortexRight.SetActive(false);
+        
+        PutamenLeft.GetComponent<MeshRenderer>().enabled = false;
+        PutamenRight.GetComponent<MeshRenderer>().enabled = false;
+        ThalamusRight.GetComponent<MeshRenderer>().enabled = false;
+        ThalamusLeft.GetComponent<MeshRenderer>().enabled = false;
+        CortexLeft.GetComponent<MeshRenderer>().enabled = false;
+        CortexRight.GetComponent<MeshRenderer>().enabled = false; 
     }
 
     void Update()
@@ -113,6 +113,7 @@ public class GameManager : MonoBehaviour
                 BasalButton.SetActive(false);
                 ThalamusButton.SetActive(false);
                 CortexButton.SetActive(false);
+
                 foreach (GameObject electrode in ElectrodeGP)
                 {
                     electrode.SetActive(false);
@@ -123,20 +124,29 @@ public class GameManager : MonoBehaviour
                 }
                 //change colours of brain areas
                 
+
                 GlobusBrainLeft.GetComponent<Renderer>().material.color = InfoGlobusColor;
                 GlobusBrainRight.GetComponent<Renderer>().material.color = InfoGlobusColor;
                 NucleusBrainLeft.GetComponent<Renderer>().material.color = InfoNucleusColor;
                 NucleusBrainRight.GetComponent<Renderer>().material.color = InfoNucleusColor;
+                PutamenLeft.GetComponent<MeshRenderer>().enabled = false;
+                PutamenRight.GetComponent<MeshRenderer>().enabled = false;
+                ThalamusRight.GetComponent<MeshRenderer>().enabled = false;
+                ThalamusLeft.GetComponent<MeshRenderer>().enabled = false;
+                CortexLeft.GetComponent<MeshRenderer>().enabled = false;
+                CortexRight.GetComponent<MeshRenderer>().enabled = false;
+                PutamenLeft.GetComponent<MotorLoopBehavior>().looping = false;
                 break;
             case AppState.DBS:
-                GlobusBrainLeft.SetActive(true);
-                GlobusBrainRight.SetActive(true);
-                PutamenLeft.SetActive(false);
-                PutamenRight.SetActive(false);
-                ThalamusRight.SetActive(false);
-                ThalamusLeft.SetActive(false);
-                CortexLeft.SetActive(false);
-                CortexRight.SetActive(false);
+                GlobusBrainLeft.GetComponent<MeshRenderer>().enabled = true;
+                GlobusBrainRight.GetComponent<MeshRenderer>().enabled = true;
+                PutamenLeft.GetComponent<MeshRenderer>().enabled = false;
+                PutamenRight.GetComponent<MeshRenderer>().enabled = false;
+                ThalamusRight.GetComponent<MeshRenderer>().enabled = false;
+                ThalamusLeft.GetComponent<MeshRenderer>().enabled = false;
+                CortexLeft.GetComponent<MeshRenderer>().enabled = false;
+                CortexRight.GetComponent<MeshRenderer>().enabled = false;
+
                 NucleusButton.SetActive(false);
                 SubtantiaButton.SetActive(false);
                 GlobusButton.SetActive(false);
@@ -164,27 +174,27 @@ public class GameManager : MonoBehaviour
                 GlobusBrainRight.GetComponent<Renderer>().material.color = DBSGlobusColor;
                 NucleusBrainLeft.GetComponent<Renderer>().material.color = DBSNucleusColor;
                 NucleusBrainRight.GetComponent<Renderer>().material.color = DBSNucleusColor;
+                PutamenLeft.GetComponent<MotorLoopBehavior>().looping = false;
                 break;
             case AppState.Loop:
-                Debug.Log("app state loop");
-                PutamenLeft.SetActive(true);
-                PutamenRight.SetActive(true);
-                ThalamusRight.SetActive(true);
-                ThalamusLeft.SetActive(true);
-                CortexLeft.SetActive(true);
-                CortexRight.SetActive(true);
+                PutamenLeft.GetComponent<MeshRenderer>().enabled = true;
+                PutamenRight.GetComponent<MeshRenderer>().enabled = true;
+                ThalamusRight.GetComponent<MeshRenderer>().enabled = true;
+                ThalamusLeft.GetComponent<MeshRenderer>().enabled = true;
+                CortexLeft.GetComponent<MeshRenderer>().enabled = true;
+                CortexRight.GetComponent<MeshRenderer>().enabled = true;
 
-                SetTextLoops();
                 
-                ThalamusRight.GetComponent<Renderer>().material.color = LoopPartColor;
-                ThalamusLeft.GetComponent<Renderer>().material.color = LoopPartColor;
-                PutamenRight.GetComponent<Renderer>().material.color = LoopPartColor;
-                PutamenLeft.GetComponent<Renderer>().material.color = LoopPartColor;
-                CortexLeft.GetComponent<Renderer>().material.color = LoopPartColor;
-                CortexRight.GetComponent<Renderer>().material.color = LoopPartColor;
-                //Globus Pallidus also part of loop
-                GlobusBrainLeft.GetComponent<Renderer>().material.color = LoopPartColor;
-                GlobusBrainRight.GetComponent<Renderer>().material.color = LoopPartColor;
+                // no color coding
+                ThalamusRight.GetComponent<Renderer>().material.color = new Color32(250, 2, 131, 255); 
+                ThalamusLeft.GetComponent<Renderer>().material.color = new Color32(250, 2, 131, 255); 
+                PutamenRight.GetComponent<Renderer>().material.color = new Color32(0, 255, 199, 255); 
+                PutamenLeft.GetComponent<Renderer>().material.color = new Color32(0, 255, 199, 255); 
+                CortexLeft.GetComponent<Renderer>().material.color = new Color32(144, 77, 180, 255); 
+                CortexRight.GetComponent<Renderer>().material.color = new Color32(144, 77, 180, 255);
+                //GlobusBrainLeft.GetComponent<Renderer>().material.color = new Color32(2, 232, 253, 255); 
+                //GlobusBrainRight.GetComponent<Renderer>().material.color = new Color32(2, 232, 253, 255); 
+
                 NucleusButton.SetActive(false);
                 SubtantiaButton.SetActive(false);
                 GlobusButton.SetActive(false);
@@ -193,12 +203,7 @@ public class GameManager : MonoBehaviour
                 BasalButton.SetActive(true);
                 ThalamusButton.SetActive(true);
                 CortexButton.SetActive(true);
-                PutamenLeft.GetComponent<Outline>().enabled = true;
-                PutamenRight.GetComponent<Outline>().enabled = true;
-                ThalamusLeft.GetComponent<Outline>().enabled = true;
-                ThalamusRight.GetComponent<Outline>().enabled = true;
-                CortexRight.GetComponent<Outline>().enabled = true;
-                CortexLeft.GetComponent<Outline>().enabled = true;
+                
                 foreach (GameObject electrode in ElectrodeGP)
                 {
                     electrode.SetActive(false);
@@ -221,6 +226,7 @@ public class GameManager : MonoBehaviour
         {
             current = AppState.Loop;
             ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "betroffene \n Hirnareale";
+            SetTextLoops();
         }
         else if (current == AppState.DBS)
         {
@@ -250,6 +256,7 @@ public class GameManager : MonoBehaviour
         {
             current = AppState.Loop;
             ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "betroffene \n Hirnareale";
+            SetTextLoops();
         }
         else
         {
@@ -370,9 +377,9 @@ public class GameManager : MonoBehaviour
             "gewollte auslöst. Das passiert durch \n Aktivierung bestimmter Areale in der hier \n" +
             "dargestellten fortlaufenden Schleife. \n Parkinson behindert den richtigen Ablauf \n" +
             "und erzeugt so die bekannten Symptome.";
-        DeactivateAllOutlines();
+        //DeactivateAllOutlines();
     }
-        public void DeactivateAllOutlines()
+    public void DeactivateAllOutlines()
     {
         GlobusBrainLeft.GetComponent<Outline>().enabled = false;
         GlobusBrainRight.GetComponent<Outline>().enabled = false;
