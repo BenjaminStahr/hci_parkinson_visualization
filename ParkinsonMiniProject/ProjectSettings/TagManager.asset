@@ -37,6 +37,8 @@ TagManager:
   - MotorCortex
   - ButtonRight
   - ButtonLeft
+  - StartAnimation
+  - LoopColorLegend
   layers:
   - Default
   - TransparentFX

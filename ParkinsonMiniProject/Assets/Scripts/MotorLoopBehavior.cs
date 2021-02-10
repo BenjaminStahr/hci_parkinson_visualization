@@ -129,5 +129,9 @@ public class MotorLoopBehavior : MonoBehaviour
         CortexRight.GetComponent<Outline>().enabled = true;
         CortexLeft.GetComponent<Outline>().enabled = true;
     }
+    public void StartLooping()
+    {
+        looping = true;
+    }
     
 }

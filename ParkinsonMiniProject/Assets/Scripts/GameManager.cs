@@ -19,9 +19,10 @@ public class GameManager : MonoBehaviour
     public GameObject NucleusButton;
     public GameObject GlobusDBSButton;
     public GameObject NucleusDBSButton;
-    public GameObject BasalButton;
-    public GameObject ThalamusButton;
-    public GameObject CortexButton;
+    //public GameObject BasalButton;
+    //public GameObject ThalamusButton;
+    //public GameObject CortexButton;
+    public GameObject StartLoopButton;
     public GameObject InfoText;
     public GameObject TotalBrain;
     public GameObject GlobusBrainLeft;
@@ -36,15 +37,16 @@ public class GameManager : MonoBehaviour
     public GameObject ThalamusRight;
     public GameObject CortexRight;
     public GameObject CortexLeft;
+    public GameObject LoopColorLegend;
     public GameObject[] ElectrodeGP;
     public GameObject[] ElectrodeSTN;
     public GameObject[] electrodeLights;
     public GameObject[] electrodeLightsSTN;
 
-    Color DBSNucleusColor = new Color32(2,232,253,255);
-    Color DBSGlobusColor = new Color32(253,241,5,255);
-    Color InfoNucleusColor = new Color32(10,43,253,255);
-    Color InfoGlobusColor = new Color32(253,178,5,255);
+    //Color DBSNucleusColor = new Color32(2,232,253,255);
+    //Color DBSGlobusColor = new Color32(253,241,5,255);
+    //Color InfoNucleusColor = new Color32(10,43,253,255);
+    //Color InfoGlobusColor = new Color32(253,178,5,255);
     Color LoopPartColor = new Color32(239, 255, 0, 255);
     Color OutlineColor = new Color32(0, 185, 255, 255);
     
@@ -58,9 +60,10 @@ public class GameManager : MonoBehaviour
         NucleusButton = GameObject.FindGameObjectWithTag("Nucleus");
         GlobusDBSButton = GameObject.FindGameObjectWithTag("GlobusDBS");
         NucleusDBSButton = GameObject.FindGameObjectWithTag("NucleusDBS");
-        BasalButton = GameObject.FindGameObjectWithTag("BasalGanglia");
-        ThalamusButton = GameObject.FindGameObjectWithTag("ThalamusButton");
-        CortexButton = GameObject.FindGameObjectWithTag("MotorCortex");
+        //BasalButton = GameObject.FindGameObjectWithTag("BasalGanglia");
+        //ThalamusButton = GameObject.FindGameObjectWithTag("ThalamusButton");
+        //CortexButton = GameObject.FindGameObjectWithTag("MotorCortex");
+        StartLoopButton = GameObject.FindGameObjectWithTag("StartAnimation");
         InfoText = GameObject.FindGameObjectWithTag("InfoText");
         TotalBrain = GameObject.FindGameObjectWithTag("Brain");
         GlobusBrainLeft = GameObject.FindGameObjectWithTag("GlobusBrainLeft");
@@ -80,7 +83,7 @@ public class GameManager : MonoBehaviour
         ElectrodeSTN = GameObject.FindGameObjectsWithTag("ElectrodeSTN");
         electrodeLights = GameObject.FindGameObjectsWithTag("ElectrodeLight");
         electrodeLightsSTN = GameObject.FindGameObjectsWithTag("ElectrodeLightSTN");
-        
+        LoopColorLegend = GameObject.FindGameObjectWithTag("LoopColorLegend");
         /**
         foreach (GameObject electrodeLight in electrodeLights)
         {
@@ -88,9 +91,10 @@ public class GameManager : MonoBehaviour
         }*/
         GlobusDBSButton.SetActive(false);
         NucleusDBSButton.SetActive(false);
-        BasalButton.SetActive(false);
-        ThalamusButton.SetActive(false);
-        CortexButton.SetActive(false);
+        //BasalButton.SetActive(false);
+        //ThalamusButton.SetActive(false);
+        //CortexButton.SetActive(false);
+        StartLoopButton.SetActive(false);
         
         PutamenLeft.GetComponent<MeshRenderer>().enabled = false;
         PutamenRight.GetComponent<MeshRenderer>().enabled = false;
@@ -110,9 +114,9 @@ public class GameManager : MonoBehaviour
                 GlobusButton.SetActive(true);
                 GlobusDBSButton.SetActive(false);
                 NucleusDBSButton.SetActive(false);
-                BasalButton.SetActive(false);
-                ThalamusButton.SetActive(false);
-                CortexButton.SetActive(false);
+                //BasalButton.SetActive(false);
+                //ThalamusButton.SetActive(false);
+                //CortexButton.SetActive(false);
 
                 foreach (GameObject electrode in ElectrodeGP)
                 {
@@ -125,10 +129,10 @@ public class GameManager : MonoBehaviour
                 //change colours of brain areas
                 
 
-                GlobusBrainLeft.GetComponent<Renderer>().material.color = InfoGlobusColor;
-                GlobusBrainRight.GetComponent<Renderer>().material.color = InfoGlobusColor;
-                NucleusBrainLeft.GetComponent<Renderer>().material.color = InfoNucleusColor;
-                NucleusBrainRight.GetComponent<Renderer>().material.color = InfoNucleusColor;
+                //GlobusBrainLeft.GetComponent<Renderer>().material.color = InfoGlobusColor;
+                //GlobusBrainRight.GetComponent<Renderer>().material.color = InfoGlobusColor;
+                //NucleusBrainLeft.GetComponent<Renderer>().material.color = InfoNucleusColor;
+                //NucleusBrainRight.GetComponent<Renderer>().material.color = InfoNucleusColor;
                 PutamenLeft.GetComponent<MeshRenderer>().enabled = false;
                 PutamenRight.GetComponent<MeshRenderer>().enabled = false;
                 ThalamusRight.GetComponent<MeshRenderer>().enabled = false;
@@ -136,8 +140,11 @@ public class GameManager : MonoBehaviour
                 CortexLeft.GetComponent<MeshRenderer>().enabled = false;
                 CortexRight.GetComponent<MeshRenderer>().enabled = false;
                 PutamenLeft.GetComponent<MotorLoopBehavior>().looping = false;
+                LoopColorLegend.SetActive(false);
+                StartLoopButton.SetActive(false);
                 break;
             case AppState.DBS:
+                LoopColorLegend.SetActive(false);
                 GlobusBrainLeft.GetComponent<MeshRenderer>().enabled = true;
                 GlobusBrainRight.GetComponent<MeshRenderer>().enabled = true;
                 PutamenLeft.GetComponent<MeshRenderer>().enabled = false;
@@ -152,9 +159,9 @@ public class GameManager : MonoBehaviour
                 GlobusButton.SetActive(false);
                 GlobusDBSButton.SetActive(true);
                 NucleusDBSButton.SetActive(true);
-                BasalButton.SetActive(false);
-                ThalamusButton.SetActive(false);
-                CortexButton.SetActive(false);
+                //BasalButton.SetActive(false);
+                //ThalamusButton.SetActive(false);
+                //CortexButton.SetActive(false);
 
                 foreach (GameObject electrode in ElectrodeGP)
                 {
@@ -170,13 +177,15 @@ public class GameManager : MonoBehaviour
                 GlobusBrainRight.GetComponent<Outline>().OutlineColor = OutlineColor;
                 GlobusBrainLeft.GetComponent<Outline>().OutlineWidth = 2;
                 GlobusBrainRight.GetComponent<Outline>().OutlineWidth = 2;
-                GlobusBrainLeft.GetComponent<Renderer>().material.color = DBSGlobusColor;
-                GlobusBrainRight.GetComponent<Renderer>().material.color = DBSGlobusColor;
-                NucleusBrainLeft.GetComponent<Renderer>().material.color = DBSNucleusColor;
-                NucleusBrainRight.GetComponent<Renderer>().material.color = DBSNucleusColor;
+                //GlobusBrainLeft.GetComponent<Renderer>().material.color = DBSGlobusColor;
+                //GlobusBrainRight.GetComponent<Renderer>().material.color = DBSGlobusColor;
+                //NucleusBrainLeft.GetComponent<Renderer>().material.color = DBSNucleusColor;
+                //NucleusBrainRight.GetComponent<Renderer>().material.color = DBSNucleusColor;
                 PutamenLeft.GetComponent<MotorLoopBehavior>().looping = false;
+                StartLoopButton.SetActive(false);
                 break;
             case AppState.Loop:
+                LoopColorLegend.SetActive(true);
                 PutamenLeft.GetComponent<MeshRenderer>().enabled = true;
                 PutamenRight.GetComponent<MeshRenderer>().enabled = true;
                 ThalamusRight.GetComponent<MeshRenderer>().enabled = true;
@@ -185,7 +194,6 @@ public class GameManager : MonoBehaviour
                 CortexRight.GetComponent<MeshRenderer>().enabled = true;
 
                 
-                // no color coding
                 ThalamusRight.GetComponent<Renderer>().material.color = new Color32(250, 2, 131, 255); 
                 ThalamusLeft.GetComponent<Renderer>().material.color = new Color32(250, 2, 131, 255); 
                 PutamenRight.GetComponent<Renderer>().material.color = new Color32(0, 255, 199, 255); 
@@ -199,10 +207,11 @@ public class GameManager : MonoBehaviour
                 SubtantiaButton.SetActive(false);
                 GlobusButton.SetActive(false);
                 GlobusDBSButton.SetActive(false);
-                NucleusDBSButton.SetActive(false); 
-                BasalButton.SetActive(true);
-                ThalamusButton.SetActive(true);
-                CortexButton.SetActive(true);
+                NucleusDBSButton.SetActive(false);
+                //BasalButton.SetActive(true);
+                //ThalamusButton.SetActive(true);
+                //CortexButton.SetActive(true);
+                StartLoopButton.SetActive(true);
                 
                 foreach (GameObject electrode in ElectrodeGP)
                 {
@@ -212,7 +221,7 @@ public class GameManager : MonoBehaviour
                 {
                     electrode.SetActive(false);
                 }
-                PutamenLeft.GetComponent<MotorLoopBehavior>().looping = true;
+                //PutamenLeft.GetComponent<MotorLoopBehavior>().looping = true;
                 //TotalBrain.GetComponent<MotorLoopBehavior>().looping = true;
                 //this.GetComponent<MotorLoopBehavior>().looping = true;
                 break;
@@ -224,17 +233,23 @@ public class GameManager : MonoBehaviour
     {
         if (current == AppState.Information)
         {
+            DeactivateAllOutlines();
+            InfoText.GetComponent<TextMesh>().text = "Drücken Sie einen Knopf.";
             current = AppState.Loop;
-            ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "betroffene \n Hirnareale";
+            ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Betroffene \n Hirnareale";
             SetTextLoops();
         }
         else if (current == AppState.DBS)
         {
+            DeactivateAllOutlines();
+            InfoText.GetComponent<TextMesh>().text = "Drücken Sie einen Knopf.";
             current = AppState.Information;
             ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Information";
         }
         else
         {
+            DeactivateAllOutlines();
+            InfoText.GetComponent<TextMesh>().text = "Drücken Sie einen Knopf.";
             current = AppState.DBS;
             ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Tiefenhirn- \n stimualtion";
         }
@@ -249,17 +264,23 @@ public class GameManager : MonoBehaviour
     {
         if (current == AppState.Information)
         {
+            DeactivateAllOutlines();
+            InfoText.GetComponent<TextMesh>().text = "Drücken Sie einen Knopf.";
             current = AppState.DBS;
             ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Tiefenhirn- \n stimualtion";
         }
         else if (current == AppState.DBS)
         {
+            DeactivateAllOutlines();
+            InfoText.GetComponent<TextMesh>().text = "Drücken Sie einen Knopf.";
             current = AppState.Loop;
-            ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "betroffene \n Hirnareale";
+            ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Betroffene \n Hirnareale";
             SetTextLoops();
         }
         else
         {
+            DeactivateAllOutlines();
+            InfoText.GetComponent<TextMesh>().text = "Drücken Sie einen Knopf.";
             current = AppState.Information;
             ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Information";
         }
