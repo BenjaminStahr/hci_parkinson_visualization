@@ -27,10 +27,10 @@ public class PlayInfoText : MonoBehaviour
 
     public void ModusAndAudio()
     {
-        //gucken ob das funktioniert ->bei mir werden die neuen public gameobjects im inspector nicht geupdatet...
+        //
         currentButton = GameObject.FindGameObjectWithTag("Modus");
         buttonText = currentButton.GetComponentInChildren<TextMeshProUGUI>().text;
-        if (buttonText == "Loop")
+        if (buttonText == "betroffene \n Hirnareale")
             PlayInfo();
         else
             StopAll();

@@ -220,7 +220,7 @@ public class GameManager : MonoBehaviour
         if (current == AppState.Information)
         {
             current = AppState.Loop;
-            ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Loop";
+            ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "betroffene \n Hirnareale";
         }
         else if (current == AppState.DBS)
         {
@@ -230,7 +230,31 @@ public class GameManager : MonoBehaviour
         else
         {
             current = AppState.DBS;
-            ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "DBS";
+            ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Tiefenhirn- \n stimualtion";
+        }
+    }
+
+    public void SwitchModeRight()
+    {
+        SwitchMode();
+    }
+
+    public void SwitchModeLeft()
+    {
+        if (current == AppState.Information)
+        {
+            current = AppState.DBS;
+            ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Tiefenhirn- \n stimualtion";
+        }
+        else if (current == AppState.DBS)
+        {
+            current = AppState.Loop;
+            ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "betroffene \n Hirnareale";
+        }
+        else
+        {
+            current = AppState.Information;
+            ModusButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Information";
         }
     }
 
