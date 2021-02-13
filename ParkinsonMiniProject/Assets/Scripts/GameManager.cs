@@ -318,9 +318,9 @@ public class GameManager : MonoBehaviour
     }
     public void SetTextSubtantia()
     {
-        InfoText.GetComponent<TextMesh>().text = "Die Substantia nigra liegt nahe dem \n Hirnstamm, welcher auf Bewegungen berechnet " +
+        InfoText.GetComponent<TextMesh>().text = "Die Substantia nigra liegt nahe dem \n Hirnstamm, welcher auf Bewegungen berechnet \n " +
             "und einleitet. Die Stelle reagiert auf \n Dopamin um richtig zu funktionieren. Die" +
-            " Substantia Nigra besteht z.T. aus dopamin-\n liefernden Nerven, welche bei Parkinson \n" +
+            " Substantia\n Nigra besteht z.T. aus dopamin-\n liefernden Nerven, welche bei Parkinson \n" +
             " absterben. Sie ist die Stelle im Kopf, die \n am stärksten betroffen ist.";
         DeactivateAllOutlines();
         SubtantiaBrainLeft.GetComponent<Outline>().enabled = true;
