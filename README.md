@@ -4,7 +4,7 @@
 
 ## Project Overview
 
-This project uses a 3D model of the brain, enhanced with AR through an Android application built using Unity and the Vuforia framework. The app visually represents key affected brain areas in Parkinson’s disease and demonstrates the effects of deep brain stimulation (DBS). The application aims to assist both patients and physicians by providing an interactive tool that clarifies complex medical details, reduces patient anxiety about treatments like DBS, and improves decision-making regarding therapy plans.
+This project uses a 3D model of the brain, enhanced with AR through an Android application built using Unity and the Vuforia framework. The app visually represents key affected brain areas in Parkinson’s disease and demonstrates the effects of DBS. The application aims to assist both patients and physicians by providing an interactive tool that clarifies complex medical details, reduces patient anxiety about treatments like DBS, and improves decision-making regarding therapy plans.
 
 You can watch the final prototype on YouTube:  
 [Inside Out - Final Prototype](https://www.youtube.com/watch?v=Pe7rCZNFaro)
